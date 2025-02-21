@@ -1,0 +1,77 @@
+
+.header {
+    position: sticky;
+    top: 32px;
+    z-index: 10;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1110px;
+    padding: 0px 30px;
+    border: 3px solid #00D8FF;
+    border-radius: 8px;
+}
+
+p {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    transition: 250ms ease-in-out;
+    span {
+            padding: 0 10px;
+            color: #00D8FF;
+            transition: 250ms ease-in-out;
+        }
+}
+
+p:hover,
+p:focus,
+p:active {
+    color: #00D8FF;
+    filter: drop-shadow(0 0 2em #00D8FF);
+    outline: none;
+    span {
+        text-transform: uppercase;
+        color: #017c9b;
+        filter: drop-shadow(0 0 em #017c9b);
+        }
+}
+
+
+
+
+.logo.goit {
+  transition: 250ms ease-in-out;
+}
+
+.logo.goit:hover {
+    filter: drop-shadow(0 0 2em rgb(255, 107, 10));
+    transform: scale(1.05);
+}
+
+.react{
+    padding: 15px;
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 em #00D8FF);
+}
+
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .logo.react {
+        animation: logo-spin infinite 10s linear;
+    }
+}
