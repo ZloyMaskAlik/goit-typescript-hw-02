@@ -1,62 +1,62 @@
 
 .header {
+    width: 1280px;
+    padding: 0px 50px;
     position: sticky;
-    top: 32px;
+    top: 1rem;
     z-index: 10;
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1310px;
-    padding: 0px 50px;
-    border: 2px solid #017c9b;
+    border: 2px solid #49494af5;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
-p {
+.item {
+    margin: 0;
+    padding: 25px 0;
+    cursor: pointer;
     display: flex;
     align-items: center;
     font-size: 35px;
     font-weight: 700;
-    margin: 0;
+    
     transition: 250ms ease-in-out;
     span {
             padding: 0 10px;
-            color: #00D8FF;
+            color: #FF6B0A;
             transition: 250ms ease-in-out;
         }
 }
 
-p:hover,
-p:focus,
-p:active {
-    color: #00D8FF;
-    filter: drop-shadow(0 0 2em #00D8FF);
-    outline: none;
+.item:hover {
+    color: #FF6B0A;
+    text-shadow: 10px 10px 10px #ff6c0a7e;
+    
     span {
-        /* text-transform: uppercase; */
-        color: #017c9b;
-        filter: drop-shadow(0 0 em #017c9b);
+        color: #000;
+        text-shadow: 10px 10px 10px #00000059;
         }
 }
-
+.link{
+    display: flex;
+    align-content: center;
+}
 .goit {
-  padding: 10px 0;
+  padding: 35px 0;
   transition: 250ms ease-in-out;
 }
 
 .goit:hover {
-    filter: drop-shadow(0 0 2em rgb(255, 107, 10));
+    filter: drop-shadow(0 0 2em #00000059);
     transform: scale(1.05);
 }
 
 .react{
     padding: 15px;
 }
-.react:hover {
-    filter: drop-shadow(0 0 em #00D8FF);
-}
-
 
 @keyframes logo-spin {
     from {

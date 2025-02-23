@@ -1,0 +1,17 @@
+.name {
+    padding-top: 15px;
+}
+
+.status {
+    font-size: 25px;
+}
+
+.status__isOnline {
+    composes: status;
+    color: #008000;
+}
+
+.status__isOffline {
+    composes: status;
+    color: #ff0000;
+}
