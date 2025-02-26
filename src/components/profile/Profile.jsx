@@ -4,12 +4,12 @@ import views from '../../assets/view.svg'
 import like from '../../assets/like.svg'
 
 
-export default function Profile({name,tag,location,image,stats}) {
+export default function Profile({name,tag,location,avatar,stats}) {
     return ( 
         <div className={styles.profile}>
            <div className={styles.data}>          
             <img className={styles.avatar}
-              src={image}
+              src={avatar}
               alt="User avatar"
             />
             <p className={styles.username}>{name}</p>

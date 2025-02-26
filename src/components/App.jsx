@@ -10,6 +10,7 @@ import friends from './friend_list/friends.json'
 import transactions from './transactions_history/transactions.json'
 
 
+
 export default function App() {
    return (
     <>
@@ -18,10 +19,10 @@ export default function App() {
         name={userData.username}
         tag={userData.tag}
         location={userData.location}
-        image={userData.avatar}
+        avatar={userData.avatar}
         stats={userData.stats}
       />
-       <FriendList friends={friends} />
+       <FriendList peoples={friends} />
        <TransactionHistory items={transactions} />
     </>
   )

@@ -15,11 +15,10 @@
 
 .item {
     margin: 0;
-    padding: 15px 0;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
     transition: 250ms ease-in-out;
     span {
@@ -45,7 +44,7 @@
 
 .goit {
   width: 150px;
-  padding: 35px 0;
+  padding: 18px 0;
   transition: 250ms ease-in-out;
 }
 
@@ -54,9 +53,26 @@
     transform: scale(1.05);
 }
 
+.icon {
+    position: relative;
+}
+
 .react{
-    width: 100px;
-    padding: 15px;
+    width: 70px;
+}
+
+.earth {
+    position: absolute;
+    left: 23px;
+    top: 19px;
+    width: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+
+}
+
+pre {
+  margin: 0;
 }
 
 @keyframes logo-spin {
@@ -69,8 +85,10 @@
     }
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
     .react {
         animation: logo-spin infinite 10s linear;
     }
 }
+

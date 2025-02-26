@@ -6,12 +6,12 @@
     font-size: 25px;
 }
 
-.status__isOnline {
+.status_isOnline {
     composes: status;
     color: #008000;
 }
 
-.status__isOffline {
+.status_isOffline {
     composes: status;
     color: #ff0000;
 }
