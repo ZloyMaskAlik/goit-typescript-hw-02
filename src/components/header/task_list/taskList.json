@@ -7,24 +7,24 @@
     {
         "id": 2,
         "link": "https://goit-react-hw-01-ochre-five.vercel.app/",
-        "completed": true
+        "completed": false
     },
     {
         "id": 3,
         "number": 3,
         "link": "https://goit-react-hw-01-ochre-five.vercel.app/",
-        "completed": true
+        "completed": false
     },
     {
         "id": 4,
         "number": 4,
         "link": "https://goit-react-hw-01-ochre-five.vercel.app/",
-        "completed": true
+        "completed": false
     },
     {
         "id": 5,
         "number": 5,
         "link": "https://goit-react-hw-01-ochre-five.vercel.app/",
-        "completed": true
+        "completed": false
     }
 ]
