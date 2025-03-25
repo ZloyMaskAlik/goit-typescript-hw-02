@@ -2,12 +2,6 @@ import reactLogo from '../../assets/react.svg'
 import goitLogo from '../../assets/goit.svg'
 import earth from '../../assets/earth.svg'
 import styles from './Header.module.css'
-import TaskList from './task_list/taskList';
-import taskList from './task_list/taskList.json'
-
-const taskCompleted = taskList.filter((task) => task.completed);  
-
-console.log(taskCompleted);
 
 
 export default function Header() {
@@ -22,10 +16,9 @@ export default function Header() {
                 <img src={reactLogo} className={styles.react} alt="React logo" />
                 <img src={earth} className={styles.earth} alt="Earth logo" />
             </div>
-            <p className={styles.item}>HOMEWORK <span>REACT</span> TASK 1</p>
+            <p className={styles.item}>HOMEWORK <span>REACT</span> TASK 2</p>
             </div>
-            
-            <TaskList listIndex={taskCompleted} />
+        
         </div>
     
     );
