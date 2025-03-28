@@ -1,4 +1,4 @@
-import './App.css';
+import css from './App.module.css';
 import { useState, useEffect } from 'react';
 
 import Header from './Header/Header';
@@ -48,7 +48,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <h1>Phonebook</h1>
+      <h1 className={css.title} >Phonebook</h1>
       <ContactForm onAdd={handleAddContact} contacts={contacts} />
       <SearchBox alue={filter} onSearch={setFilter} />
       <ContactList   

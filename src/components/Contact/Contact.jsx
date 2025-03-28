@@ -7,7 +7,7 @@ export default function Contact ({ id, name, number, onDelete }){
         <div>
           <p className={css.text}>
             <span className={css.span} role="img" aria-label="Contact Name">
-            👤
+            🤠
             </span>
             {name}
           </p>
