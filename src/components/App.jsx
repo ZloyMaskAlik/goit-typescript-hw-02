@@ -1,59 +1,105 @@
-import css from './App.module.css';
 import { useState, useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+// import css from './App.module.css';
 
 import Header from './Header/Header';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import SearchBox from './SearchBox/SearchBox';
+import getImages from '../services/api';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import ImageGallery from './components/ImageGallery/ImageGallery';
+import ImageModal from './components/ImageModal/ImageModal';
+import Loader from './components/Loader/Loader';
+import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+import SearchBar from './components/SearchBar/SearchBar';
+
+
 
 export default function App() {
-  const [contacts, setContacts] = useState(() => {
-    const savedContacts = localStorage.getItem('contacts');
-    return savedContacts
-      ? JSON.parse(savedContacts)
-      : [
-          { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-          { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-          { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-          { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-        ];
-  });
-
-  const [filter, setFilter] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+  const [images, setImages] = useState([]);
+  const [page, setPage] = useState(1);
+  const [error, setError] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [largeImageURL, setLargeImageURL] = useState('');
 
   useEffect(() => {
-    const stringifiedContacts = JSON.stringify(contacts);
-    localStorage.setItem('contacts', stringifiedContacts);
-  }, [contacts]);
-
-  const handleAddContact = newContact => {
-    const isContactExist = contacts.some(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
-    );
-    if (isContactExist) {
-      return alert(`${newContact.name} is already in contacts`);
+    if (searchValue.trim() === '') {
+      return;
     }
-      setContacts(prevContacts => [...prevContacts, newContact]);
+
+    const fetchImages = async () => {
+      try {
+        setLoader(true);
+        setError(null);
+
+        const { images: newImages, total } = await getImages(searchValue, page);
+        if (newImages.length === 0) {
+          toast.error('No images found. Try another query.');
+          setImages([]);
+        } else {
+          const totalImages = total;
+          const totalPages = Math.ceil(totalImages / 12);
+          setImages(prevState => [...prevState, ...newImages]);
+          setTotalPages(totalPages);
+        }
+      } catch (error) {
+        setError('Failed to load images');
+        console.log(error);
+        setImages([]);
+      } finally {
+        setLoader(false);
+      }
+    };
+    fetchImages();
+  }, [searchValue, page]);
+
+  const handleSearch = query => {
+    if (query === searchValue) {
+      setPage(1);
+    } else {
+      setSearchValue(query);
+      setImages([]);
+      setPage(1);
+      setTotalPages(0);
+      setError(null);
+    }
   };
 
-  const handleDeleteContact = contactId => {
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== contactId)
-    );
+  const handleLoadMore = () => {
+    setPage(prevState => prevState + 1);
   };
 
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const openModal = largeImageURL => {
+    setLargeImageURL(largeImageURL);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
-    <>
+    < >
       <Header />
-      <h1 className={css.title} >Phonebook</h1>
-      <ContactForm onAdd={handleAddContact} contacts={contacts} />
-      <SearchBox alue={filter} onSearch={setFilter} />
-      <ContactList   
-        contacts={visibleContacts}
-        onDelete={handleDeleteContact}/>
+      <SearchBar onSearch={handleSearch} />
+      {loader && <Loader />}
+      {error && <ErrorMessage message={error} />}
+      {!error && images.length > 0 && (
+        <ImageGallery images={images} showModal={openModal} />
+      )}
+      {images.length > 0 && page < totalPages && (
+        <LoadMoreBtn onLoadMore={handleLoadMore} />
+      )}
+      <Toaster position="top-right" />
+      {modalOpen && (
+        <ImageModal
+          isOpen={modalOpen}
+          onRequestClose={closeModal}
+          largeImageURL={largeImageURL}
+        />
+      )}
     </>
   );
-}
+};
+
