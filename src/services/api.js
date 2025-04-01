@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.unsplash.com/';
-const API_ACCESS_KEY = '';
+const API_ACCESS_KEY = 'JyWenOpLSfUPKLaUAYDW3GJ8AubwbN6A8dNOfTrM8rQ';
 
 export default async function getImages (searchedQuery, currentPage = 1, perPage = 12){
   const axiosOptions = {

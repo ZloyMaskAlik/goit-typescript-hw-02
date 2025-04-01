@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-// import css from './App.module.css';
 
 import Header from './Header/Header';
 import getImages from '../services/api';
-import ErrorMessage from './components/ErrorMessage/ErrorMessage';
-import ImageGallery from './components/ImageGallery/ImageGallery';
-import ImageModal from './components/ImageModal/ImageModal';
-import Loader from './components/Loader/Loader';
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
-import SearchBar from './components/SearchBar/SearchBar';
+import ErrorMessage from './ErrorMessage/ErrorMessage';
+import ImageGallery from './ImageGallery/ImageGallery';
+import ImageModal from './ImageModal/ImageModal';
+import Loader from './Loader/Loader';
+import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
+import SearchBar from './SearchBar/SearchBar';
 
 
 
