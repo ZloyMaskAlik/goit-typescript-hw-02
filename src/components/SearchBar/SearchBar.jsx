@@ -19,8 +19,7 @@ export default function SearchBar ({ onSearch }){
     setSearchValue('');
   };
   return (
-    <>
-      <div className={css.search}>
+       <div className={css.search}>
         <form className={css.form} onSubmit={handleSubmit}>
           <button className={css.button} type="submit">
             <span className={css.span}>Search</span>
@@ -34,9 +33,7 @@ export default function SearchBar ({ onSearch }){
             value={searchValue}
             onChange={handleChange}
           />
-
         </form>
       </div>
-    </>
-  );
+    );
 };
