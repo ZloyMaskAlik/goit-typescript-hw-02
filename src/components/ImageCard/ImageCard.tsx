@@ -1,6 +1,13 @@
 import css from './ImageCard.module.css';
 
-export default function ImageCard({ image, showModal }){
+import { Image } from '../../types/image';
+
+type Props = {
+  image: Image;
+  showModal: (imageUrl: string) => void;
+};
+
+export default function ImageCard({ image, showModal }:Props ){
   return (
     <div>
       <img

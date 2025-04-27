@@ -32,7 +32,7 @@
     transition: 250ms ease-in-out;
     span {
             padding: 0 10px;
-            color: #FF6B0A;
+            color: rgb(10, 45, 224);
             transition: 250ms ease-in-out;
         }
 }
@@ -66,38 +66,7 @@
     position: relative;
 }
 
-.react{
+.type{
     width: 70px;
-}
-
-.earth {
-    position: absolute;
-    left: 23px;
-    top: 19px;
-    width: 24px;
-    background-color: #ffffff;
-    border-radius: 50%;
-
-}
-
-pre {
-  margin: 0;
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-    .react {
-        animation: logo-spin infinite 10s linear;
-    }
 }
 

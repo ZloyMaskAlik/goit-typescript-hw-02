@@ -1,6 +1,10 @@
 import css from './ErrorMessage.module.css';
 
-export default function ErrorMessage({ message }){
+type Props = {
+  message: string;
+};
+
+export default function ErrorMessage ({ message }: Props){
   return (
     <div className={css.errorMessage}>
       <p>{message}</p>

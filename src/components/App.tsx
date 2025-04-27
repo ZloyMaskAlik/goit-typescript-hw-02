@@ -10,17 +10,17 @@ import Loader from './Loader/Loader';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
 import SearchBar from './SearchBar/SearchBar';
 
-
+import { Image } from '../types/image';
 
 export default function App() {
-  const [searchValue, setSearchValue] = useState('');
-  const [images, setImages] = useState([]);
-  const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
-  const [loader, setLoader] = useState(false);
-  const [totalPages, setTotalPages] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [largeImageURL, setLargeImageURL] = useState('');
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [images, setImages] = useState<Image[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [error, setError] = useState<string | null>(null);
+  const [loader, setLoader] = useState<boolean>(false);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [largeImageURL, setLargeImageURL] = useState<string>('');
 
   useEffect(() => {
     if (searchValue.trim() === '') {
@@ -32,7 +32,9 @@ export default function App() {
         setLoader(true);
         setError(null);
 
-        const { images: newImages, total } = await getImages(searchValue, page);
+        const response = await getImages(searchValue, page);
+        const { results: newImages, total } = response;
+        
         if (newImages.length === 0) {
           toast.error('No images found. Try another query.');
           setImages([]);
@@ -53,7 +55,7 @@ export default function App() {
     fetchImages();
   }, [searchValue, page]);
 
-  const handleSearch = query => {
+  const handleSearch = (query: string) => {
     if (query === searchValue) {
       setPage(1);
     } else {
@@ -69,7 +71,7 @@ export default function App() {
     setPage(prevState => prevState + 1);
   };
 
-  const openModal = largeImageURL => {
+  const openModal = (largeImageURL: string) => {
     setLargeImageURL(largeImageURL);
     setModalOpen(true);
   };

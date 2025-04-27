@@ -1,6 +1,5 @@
-import reactLogo from '../../assets/react.svg'
+import typeLogo from '../../assets/typescript.svg'
 import goitLogo from '../../assets/goit.svg'
-import earth from '../../assets/earth.svg'
 import styles from './Header.module.css'
 
 
@@ -13,10 +12,9 @@ export default function Header() {
             </a>
             <div className={styles.taskList}>
             <div className={styles.icon}> 
-                <img src={reactLogo} className={styles.react} alt="React logo" />
-                <img src={earth} className={styles.earth} alt="Earth logo" />
+                <img src={typeLogo} className={styles.type} alt="Typescript logo" />
             </div>
-            <p className={styles.item}>HOMEWORK <span>REACT</span> TASK 4</p>
+            <p className={styles.item}>HOMEWORK <span>TYPESCRIPT</span> TASK 2</p>
             </div>
         
         </div>

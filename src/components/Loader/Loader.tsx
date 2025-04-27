@@ -6,7 +6,7 @@ export default function Loader(){
     <div className={css.wrapper}>
       <PacmanLoader 
         loading ={true}
-        color="#FF6B0A"
+        color="rgb(10, 45, 224)"
         size={35}   
       />
     </div>

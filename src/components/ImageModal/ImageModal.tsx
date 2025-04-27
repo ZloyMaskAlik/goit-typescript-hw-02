@@ -2,9 +2,17 @@ import Modal from 'react-modal';
 import { useEffect } from 'react';
 import css from './ImageModal.module.css';
 
-export default function ImageModal ({ isOpen, onRequestClose, largeImageURL }){
+type Props = {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  largeImageURL: string;
+};
+
+Modal.setAppElement('#root');
+
+export default function ImageModal ({ isOpen, onRequestClose, largeImageURL }: Props) {
   useEffect(() => {
-    const handleKeyDown = event => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.code === 'Escape') {
         onRequestClose();
       }
